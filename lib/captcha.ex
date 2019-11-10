@@ -13,7 +13,7 @@ defmodule Captcha do
         other
     after
       timeout ->
-        {:timeout}
+        {:error, :timeout}
     end
   end
 end
