@@ -7,11 +7,13 @@ defmodule Captcha do
     receive do
       {^pid, {:data, data}} ->
         <<text::bytes-size(5), img::binary>> = data
-        {:ok, text, img }
+        {:ok, text, img}
 
-      other -> other
-    after timeout ->
-      {:timeout}
+      other ->
+        other
+    after
+      timeout ->
+        {:timeout}
     end
   end
 end
