@@ -1,4 +1,4 @@
-CFLAGS= -g
+CFLAGS?= -g
 
 HEADER_FILES = src
 SOURCE_FILES = src/captcha.c
