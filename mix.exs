@@ -1,18 +1,24 @@
 defmodule Mix.Tasks.Compile.Make do
   def run(_) do
-    {result, _error_code} = System.cmd("make", [], stderr_to_stdout: true)
+    {result, error_code} = System.cmd("make", [], stderr_to_stdout: true)
     Mix.shell().info(result)
 
-    :ok
+    case error_code do
+      0 -> :ok
+      _ -> {:error, ["make failed"]}
+    end
   end
 end
 
 defmodule Mix.Tasks.Clean.Make do
   def run(_) do
-    {result, _error_code} = System.cmd("make", ['clean'], stderr_to_stdout: true)
+    {result, error_code} = System.cmd("make", ['clean'], stderr_to_stdout: true)
     Mix.shell().info(result)
 
-    :ok
+    case error_code do
+      0 -> :ok
+      _ -> {:error, ["make clean failed"]}
+    end
   end
 end
 
