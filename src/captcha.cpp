@@ -90,7 +90,7 @@ int main(int argc,char **argv) {
   cimg_usage("Simple captcha generator.");
   const char *file_o       = cimg_option("-o",(const char*)0,"Output image file");
   const bool add_border    = cimg_option("-b",true,"Add border to captcha image");
-  const int length         = cimg_option("-l",5,"Set the length of the captcha");
+  const int length         = cimg_option("-l",6,"Set the length of the captcha");
 
   // Generate captcha text
   //------------------------------------
